@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Meter from '@/components/Meter'
+import TestingArea from '@/components/TestingArea'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Meter',
-      component: Meter
+      name: 'TestingArea',
+      component: TestingArea
     }
   ]
 })
