@@ -1,6 +1,5 @@
 # HudDisplayElements
-
-> A Vue.js project
+- Meter component v.1.0
 
 ## Build Setup
 
