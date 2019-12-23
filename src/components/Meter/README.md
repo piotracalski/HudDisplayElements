@@ -11,4 +11,6 @@
 - percentage value validation (0 - 100)
 - add e.g. feature value and set meter's unique id
 - 1% display bug
+- general display UX improvement
 - refactor
+- try to add step-by-step display change
