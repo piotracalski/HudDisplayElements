@@ -1,7 +1,7 @@
 <template>
   <div id="testing-area">
-    <Meter ref="meter" :value="percentage" style="transform:scale(0.5);"/>
-    <input name="percentage" v-model="percentage" @change="setMeterPercentage">
+    <Meter ref="meter" :value="percentage" style="transform:scale(1);"/>
+    <input type="range" min="0" max="100" step="1" name="percentage" v-model="percentage" @change="setMeterPercentage">
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      percentage: 99
+      percentage: 43
     }
   },
   methods: {
@@ -30,6 +30,7 @@ export default {
   #testing-area {
     width: 100%;
     height: 100%;
-    background-color: rgb(160, 160, 160);
-  }
+    background-color: rgb(6, 32, 24);
+    padding: 5%;
+    }
 </style>

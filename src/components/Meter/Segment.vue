@@ -4,14 +4,21 @@
 
 <script>
 import {
-    setSegmentMode
+    setSegmentMode,
+    getColor
 } from './methods'
 export default {
     name: 'Segment',
-    props: ['segment'],
+    props: ['segment', 'allSegments'],
     mounted() {
         document.getElementById(`meter-segment-${this.segment.id}`).style.transform = `rotate(${this.segment.rotation}deg)`;
-        setSegmentMode(`meter-segment-${this.segment.id}`, this.segment.mode);
+        this.setColor(getColor(this.segment.rotation));
+        setSegmentMode(`meter-segment-${this.segment.id}`, this.segment.mode, this.allSegments);
+    },
+    methods: {
+        setColor: function (rgb) {
+            document.getElementById(`meter-segment-${this.segment.id}`).style.borderColor = rgb;
+        }
     }
 }
 </script>
@@ -19,8 +26,8 @@ export default {
 <style>
     .meter-segment {
         width: 6px;
-        height: 21px;
-        box-sizing: content-box;
+        height: 25px;
+        box-sizing: border-box;
         border-radius: 3px;
         position: absolute;
         top:2px;
@@ -28,10 +35,10 @@ export default {
         transform-origin:3px 98px;
         background-color: none;
         box-shadow: none;
-        border: 1px solid rgb(3, 80, 131);
+        border-style: solid;
+        border-width: 1px;
     }
     .on {
-        background-color: rgb(3, 80, 131);
-        box-shadow: rgb(3, 80, 131) 0px 0px 4px 1px;
+        box-shadow: initial;
     }
 </style>
