@@ -2,7 +2,7 @@
   <div class="meter-wrapper">
       <Center :percentage="this.percentage"/>
       <div :key="segment.id" v-for="segment in this.segments">
-        <Segment :segment="segment"/>
+        <Segment :segment="segment" :allSegments="availableSegments"/>
       </div>
   </div>
 </template>
@@ -11,7 +11,8 @@
 import Center from './Center'
 import Segment from './Segment'
 import {
-    setSegmentMode
+    setSegmentMode,
+    setCenterValueColor
 } from './methods'
 
 export default {
@@ -24,7 +25,7 @@ export default {
     data() {
         return {
             percentage: undefined,
-            availableSegments: 52,
+            availableSegments: 64,
             segments: [],
             singleRotation: undefined
         }
@@ -32,7 +33,8 @@ export default {
     mounted() {
         this.setPercentage(this.value);
         this.singleRotation = 360 / this.availableSegments;
-        this.setupSegments(this.percentage);
+        this.setupSegments();
+        setCenterValueColor('meter-center', this.percentage);
     },
     methods: {
         changeOfPercentage: function (value) {
@@ -41,9 +43,8 @@ export default {
         },
         setPercentage: function (value) {
             this.percentage = value;
-            // console.log(`Current percentage: ${this.percentage}`)
         },
-        setupSegments: function (percentage) {
+        setupSegments: function () {
             let numberOfActiveSegments = Math.round(this.availableSegments * this.percentage / 100);
             for (let i = 0; i < this.availableSegments; i++) {
                 let rotation = (360 / this.availableSegments) * i;
@@ -58,7 +59,6 @@ export default {
         },
         adjustSegments: function () {
             let numberOfActiveSegments = Math.round(this.availableSegments * this.percentage / 100);
-            console.log(numberOfActiveSegments)
             for (let i = this.availableSegments - 1; i>=0; i--) {
                 let mode;
                 if (i <= numberOfActiveSegments && numberOfActiveSegments !== 0) {
@@ -66,9 +66,9 @@ export default {
                 } else {
                     mode = 'default'
                 }
-                // console.log(i);
-                setSegmentMode(`meter-segment-${i}`, mode);
+                setSegmentMode(`meter-segment-${i}`, mode, this.availableSegments);
             }
+            setCenterValueColor('meter-center', this.percentage);
         }
     }
 }
@@ -78,8 +78,15 @@ export default {
     .meter-wrapper {
         width: 200px;
         height: 200px;
-        border: 1px solid #000;
         box-sizing: content-box;
         position: relative;
+        border-style: solid;
+        border-width: 5px;
+        border-color: white;
+        border-top: none;
+        border-bottom: none;
+        /* border-right: none;
+        border-left: none; */
+        border-radius: 40%;
     }
 </style>

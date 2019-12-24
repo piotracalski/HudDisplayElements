@@ -1,5 +1,5 @@
 <template>
-  <div class="meter-center">
+  <div class="meter-center" id="meter-center">
       {{percentage}}
   </div>
   
@@ -21,7 +21,6 @@ export default {
         position: absolute;
         top: 25px;
         left:25px;
-        color: rgb(22, 146, 230);
         font-size: 72px;
         line-height: 150px;
         text-align: center;
