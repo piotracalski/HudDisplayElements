@@ -9,7 +9,7 @@
 import Meter from './Meter/Meter'
 
 export default {
-  name: 'TestingArea',
+  name: 'Demo_Meter',
   components: {
     Meter
   },
