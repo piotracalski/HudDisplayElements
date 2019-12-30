@@ -1,5 +1,6 @@
 # HudDisplayElements
 - Meter component v.1.0
+- ProgressBar component v.1.0
 
 ## Build Setup
 
