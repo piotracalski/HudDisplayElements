@@ -1,6 +1,6 @@
 <template>
   <div id="testing-area">
-    <!-- <Container ref="container" style="transform:scale(1)" /> -->
+    <Container ref="container" style="transform:scale(1)" />
   </div>
 </template>
 
@@ -38,11 +38,11 @@ export default {
         width: 100%;
         height: 100%;
         /* background-image: linear-gradient(225deg, rgb(60, 209, 172), rgb(77, 185, 218), rgb(68, 91, 143)); */
+        background-image: linear-gradient(205deg, rgb(9, 15, 20), rgb(57, 71, 85), rgb(72, 81, 90), rgb(34, 36, 37));
         /* background-image: url('../assets/bg.jpg');
         background-size: cover;
         background-repeat: no-repeat; */
         padding: 0px;
-        /* background-image: url('bg.jpg'); */
     }
     /* body {
       position: absolute;
