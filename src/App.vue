@@ -1,12 +1,14 @@
 <template>
   <div id="app">
+    <router-link to="/progress-bar">Progress Bar</router-link>
+    <router-link to="/meter">Meter</router-link>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>
 
