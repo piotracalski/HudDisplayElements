@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             width: 500,
-            segmentWidth: 10,
+            segmentWidth: 50,
             allSegmentsCount: undefined,
             displayedSegments: []
         }
@@ -70,9 +70,9 @@ export default {
 <style>
     .progressBar-wrapper {
         height: 50px;
-        border: 1px solid rgb(24, 199, 193);
-        border-radius: 20px;
-        overflow: hidden;
+        /* border: 1px solid rgb(24, 199, 193); */
+        /* border-radius: 20px; */
+        overflow: visible;
     }
     s {
         display: flex;
