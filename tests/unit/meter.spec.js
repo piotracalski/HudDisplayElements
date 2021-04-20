@@ -1,7 +1,18 @@
 import {getColor} from '@/components/Meter/methods.js'
 import * as data from '@/components/Meter/data.js'
 
-describe('Meter component - methods', () => {
+describe('Meter data tests', () => {
+  it('all RGB default colors values should be a proper type', () => {
+    const defaultColors = data.colorModes.default
+    const porperType = 'number'
+
+    for (let light in defaultColors) {
+      expect(typeof defaultColors[light]).toBe(porperType)
+    }
+  })
+})
+
+describe('Meter methods tests', () => {
   it('returns RGB code for "default" color mode', () => {
     const rotation = 100
     const colorMode = 'default'
